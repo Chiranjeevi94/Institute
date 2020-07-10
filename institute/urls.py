@@ -23,6 +23,7 @@ urlpatterns = [
     path('adminlogin/',views.admin_login,name="adminlogin"),
     path('adminwelcome/',views.adminwelcome,name="adminwelcome"),
     path('scheduleclass/',views.scheduleclass,name="scheduleclass"),
-    path('savecourse/',views.savecourse,name="savecourse")
+    path('savecourse/',views.savecourse,name="savecourse"),
+    path('viewclasses/',views.viewclasses,name="viewclasses")
 
 ]

@@ -1,0 +1,73 @@
+{% extends "common.html" %}
+{% block sathya %}
+    <head>
+    <style>
+        .welcomeadmin
+        {
+            font-family: "Segoe UI";
+            color: #f44336;
+            background-color: beige;
+        }
+        .divadmin
+        {
+           padding-top: 30px;
+        }
+        .onlineform
+        {
+            padding-top: 10px;
+            align-content: center;
+        }
+         .wrong
+        {
+            padding: 10px;
+            background-color: #f44336;
+            color: white;
+        }
+        .coursedetails
+        {
+            font-family: "Segoe UI";
+            padding-top: 10px;
+            padding-left: 80px;
+            border-color: blue;
+        }
+    </style>
+    </head>
+    <body align="center">
+    <h3 class="welcomeadmin" align="center">Welcome Admin</h3>
+    <div class="divadmin" align="center">
+        <table align="center">
+            <tr>
+                <th><a href="{% url 'scheduleclass' %}" class="btn btn-primary" role="button" style="padding: 10px 20px">Schedule New Class</a></th>
+                <th><a href="{% url 'viewclasses' %}" class="btn btn-primary" role="button" style="padding: 10px 20px">View All Schedule Classes</a></th>
+            </tr>
+        </table>
+    </div>
+    <div class="coursedetails">
+        <table align="center" width="700" border="1" style="padding: 20px">
+        <tr>
+            <th>S.No</th>
+            <th>Course</th>
+            <th>Faculty</th>
+            <th>Date</th>
+            <th>Fee</th>
+            <th>Time</th>
+            <th>Duration</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+             {% for x in data %}
+                 <tr>
+                    <th>{{ x.id }}</th>
+                    <th>{{ x.course }}</th>
+                    <th>{{ x.faculty }}</th>
+                    <th>{{ x.date }}</th>
+                    <th>{{ x.time }}</th>
+                    <th>{{ x.fee }}</th>
+                    <th>{{ x.duration }}</th>
+                    <th></th>
+                    <th></th>
+                 </tr>
+                {% endfor %}
+        </table>
+    </div>
+{% endblock %}

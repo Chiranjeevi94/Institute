@@ -19,13 +19,17 @@ def scheduleclass(request):
     return render(request,"scheduleclass.html",{"formclass": r})
 
 def savecourse(request):
-    name = request.POST.get("name")
+    course = request.POST.get("course")
     faculty = request.POST.get("faculty")
     date = request.POST.get("date")
     time = request.POST.get("time")
     fee = request.POST.get("fee")
     duration = request.POST.get("duration")
-    sm = ClassModel(name=name,faculty=faculty,date=date,time=time,fee=fee,duration=duration)
+    sm = ClassModel(course=course,faculty=faculty,date=date,time=time,fee=fee,duration=duration)
     sm.save()
     return render(request,"scheduleclass.html",{"message":"Details are Saved Successfully"})
+
+def viewclasses(request):
+    result = ClassModel.objects.all()
+    return render(request,"viewclasses.html",{"data": result})
 
