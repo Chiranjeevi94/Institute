@@ -1,0 +1,33 @@
+{% extends "common.html" %}
+{% block sathya %}
+    <head>
+    <style>
+        .welcomeadmin
+        {
+            font-family: "Segoe UI";
+            color: #f44336;
+            background-color: beige;
+        }
+        .divadmin
+        {
+           padding-top: 30px;
+        }
+    </style>
+    </head>
+    <body align="center">
+    <h3 class="welcomeadmin" align="center">Welcome Admin</h3>
+    <div class="divadmin">
+        <form action="">
+            <table align="center">
+                <tr>
+                    <th><a href={% url "scheduleclass" %} class="btn btn-primary" role="button" style="padding: 10px 20px">Schedule New Class</a></th>
+                    <th><a href="" class="btn btn-primary" role="button" style="padding: 10px 20px">View All Schedule Classes</a></th>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+
+    </body>
+
+{% endblock %}

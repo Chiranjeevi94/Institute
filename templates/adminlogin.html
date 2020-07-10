@@ -1,0 +1,55 @@
+
+{% extends "common.html" %}
+
+{% block sathya  %}
+<html>
+<head>
+    <style>
+        .adminlogin
+        {
+            padding: 50px 50px 100px 100px;
+            text-align: center;
+        }
+        .error
+        {
+            padding: 10px;
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<form action={% url "adminwelcome" %} method="post">
+    {% csrf_token %}
+<div class="adminlogin">
+    <table align="center" width="300">
+        <tr>
+            <th colspan="3" style="padding: 20px">
+                <h2>Admin Login</h2>
+            </th>
+        </tr>
+        <tr>
+            <th>User Name</th>
+            <th>:</th>
+            <th><input type="text" name="usr" required></th>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <th>:</th>
+            <th><input type="password" name="pass" required></th>
+         </tr>
+        <tr>
+            <th colspan="3" style="padding: 10px"><button type="submit">Login</button></th>
+        </tr>
+        <tr class="error">
+            {% if error %}
+                <th colspan="3"> {{ error }}</th>
+            {% endif %}
+        </tr>
+    </table>
+</div>
+</form>
+</body>
+</html>
+
+{% endblock %}
