@@ -1,5 +1,6 @@
 {% extends "common.html" %}
 {% block sathya %}
+    {% load static %}
     <head>
     <style>
         .welcomeadmin
@@ -25,11 +26,18 @@
         }
         .coursedetails
         {
-            font-family: "Segoe UI";
             padding-top: 10px;
             padding-left: 80px;
             border-color: blue;
             text-align: center;
+        }
+        .courseheading
+        {
+            font-family: "Agency FB" ;
+            font-size: 20px;
+            font-style: initial;
+            background-color: coral;
+            text-decoration-color: bisque;
         }
     </style>
     </head>
@@ -46,15 +54,15 @@
     <div class="coursedetails">
         <table align="center" width="700" border="1" style="padding: 20px;">
         <tr>
-            <th>S.No</th>
-            <th>Course</th>
-            <th>Faculty</th>
-            <th>Date</th>
-            <th>Fee</th>
-            <th>Time</th>
-            <th>Duration</th>
-            <th>Update</th>
-            <th>Delete</th>
+            <th class="courseheading">S.No</th>
+            <th class="courseheading">Course</th>
+            <th class="courseheading">Faculty</th>
+            <th class="courseheading">Date</th>
+            <th class="courseheading">Fee</th>
+            <th class="courseheading">Time</th>
+            <th class="courseheading">Duration</th>
+            <th class="courseheading">Update</th>
+            <th class="courseheading">Delete</th>
         </tr>
              {% for x in data %}
                  <tr>
@@ -65,8 +73,8 @@
                     <th>{{ x.time }}</th>
                     <th>{{ x.fee }}</th>
                     <th>{{ x.duration }}</th>
-                    <th></th>
-                    <th></th>
+                    <th><a href="">YES</a> </th>
+                     <th><a href="{% static 'images/delete.png'%}"></a></th>
                  </tr>
                 {% endfor %}
         </table>
