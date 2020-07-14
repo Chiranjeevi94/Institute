@@ -1,6 +1,7 @@
+
 {% extends "common.html" %}
+{% load static %}
 {% block sathya %}
-    {% load static %}
     <head>
     <style>
         .welcomeadmin
@@ -39,6 +40,14 @@
             background-color: coral;
             text-decoration-color: bisque;
         }
+         .deleted
+        {
+             padding: 10px;
+             font-size: 20px;
+             padding-top: 20px;
+             color: white;
+             background-color: #f44336;
+        }
     </style>
     </head>
     <body align="center">
@@ -58,13 +67,14 @@
             <th class="courseheading">Course</th>
             <th class="courseheading">Faculty</th>
             <th class="courseheading">Date</th>
-            <th class="courseheading">Fee</th>
             <th class="courseheading">Time</th>
+            <th class="courseheading">Fee</th>
             <th class="courseheading">Duration</th>
             <th class="courseheading">Update</th>
             <th class="courseheading">Delete</th>
         </tr>
              {% for x in data %}
+
                  <tr>
                     <th>{{ x.id }}</th>
                     <th>{{ x.course }}</th>
@@ -73,10 +83,20 @@
                     <th>{{ x.time }}</th>
                     <th>{{ x.fee }}</th>
                     <th>{{ x.duration }}</th>
-                    <th><a href="">YES</a> </th>
-                     <th><a href="{% static 'images/delete.png'%}"></a></th>
-                 </tr>
+                    <th><a href="{% url 'updatecourse' %}?no={{ x.id }}">YES</a> </th>
+                    <th><a href="{% url 'deletecourse' %}?no={{ x.id }}"><button type="submit" class="btn btn-primary">Delete</button></a></th>
+                    </tr>
                 {% endfor %}
         </table>
     </div>
+    {% if msg %}
+        <table align="center">
+            <tr>
+                <th colspan="9" class="deleted">
+                    {{ msg }}
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+
 {% endblock %}

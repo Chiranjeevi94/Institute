@@ -1,0 +1,59 @@
+{% extends "common.html" %}
+{% load static %}
+{% block sathya %}
+<head>
+</head>
+    <body>
+    <h1 style="font-family: 'Agency FB';color: blue;text-align: center;padding-top: 35px">Updating Course Details</h1>
+    <form action="{% url 'modifycourse' %}" method="post">
+        {% csrf_token %}
+        <table align="center" border="1" cellpadding="5">
+            <tr>
+                <td>ID :</td>
+                <td><input type="number" readonly value="{{ data.id }}" name="t1"></td>
+            </tr>
+            <tr>
+                <td>Course :</td>
+                <td><input type="text" value="{{ data.course }}" name="t2" required></td>
+            </tr>
+            <tr>
+                <td>Faculty :</td>
+                <td>
+                    <input type="text" value="{{ data.faculty }}" name="t3" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Date :</td>
+                <td>
+                    <input type="date" value="{{ data.date }}" name="t4" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Time :</td>
+                <td>
+                    <input type="time" value="{{ data.time }}" name="t5" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Fee :</td>
+                <td>
+                    <input type="number" value="{{ data.fee }}" name="t6" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Duration :</td>
+                <td>
+                    <input type="text" value="{{ data.duration }}" name="t7" required>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </td>
+            </tr>
+        </table>
+
+    </form>
+    </body>
+
+    {% endblock %}

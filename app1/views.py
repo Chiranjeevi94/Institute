@@ -33,3 +33,24 @@ def viewclasses(request):
     result = ClassModel.objects.all()
     return render(request,"viewclasses.html",{"data": result})
 
+def deletecourse(request):
+    del_course = request.GET.get("no")
+    ClassModel.objects.filter(id=del_course).delete()
+    return render(request,"viewclasses.html",{"msg":"Record has been deleted"})
+
+def updatecourse(request):
+    id = request.GET.get("no")
+    result = ClassModel.objects.get(id=id)
+    return render(request,"updatecourse.html",{"data":result})
+
+def modifycourse(request):
+    id = request.POST.get("t1")
+    course = request.POST.get("t2")
+    faculty = request.POST.get("t3")
+    date = request.POST.get("t4")
+    fee = request.POST.get("t6")
+    time = request.POST.get("t5")
+    duration = request.POST.get("t7")
+    ClassModel.objects.filter(id=id).update(course=course,faculty=faculty,date=date,time=time,fee=fee,duration=duration)
+    return redirect("viewclasses")
+

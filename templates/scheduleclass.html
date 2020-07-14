@@ -23,6 +23,12 @@
             background-color: #f44336;
             color: white;
         }
+        .msg
+        {
+            padding: 10px;
+            background-color: #f44336;
+            color: white;
+        }
     </style>
     </head>
     <body align="center">
@@ -45,12 +51,12 @@
             <br>
                 <table align="center" style="padding: 10px">
                 <tr>
-                    <th>
                     {% if message %}
+                    <th class="msg">
                     {{ message }}
+                    </th>
                     {% else %}
-                </th>
-                    <th><button type="submit" class="btn btn-primary">Register</button></th>
+                        <th><button type="submit" class="btn btn-primary">Register</button></th>
                     {% endif %}
                 </tr>
             </table>

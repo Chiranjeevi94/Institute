@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app1 import views
+from app2 import views
 
 
 urlpatterns = [
@@ -24,6 +25,9 @@ urlpatterns = [
     path('adminwelcome/',views.adminwelcome,name="adminwelcome"),
     path('scheduleclass/',views.scheduleclass,name="scheduleclass"),
     path('savecourse/',views.savecourse,name="savecourse"),
-    path('viewclasses/',views.viewclasses,name="viewclasses")
-
+    path('viewclasses/',views.viewclasses,name="viewclasses"),
+    path('deletecourse/',views.deletecourse,name="deletecourse"),
+    path('updatecourse/',views.updatecourse,name="updatecourse"),
+    path('modifycourse/',views.modifycourse,name="modifycourse"),
+    path('main/',views.index,name="main")
 ]
