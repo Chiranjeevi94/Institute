@@ -1,0 +1,72 @@
+{% extends "student/main.html" %}
+{% block student %}
+    {% load static %}
+    <body>
+    <table align="center" width="700" style="padding-top: 30px;padding-bottom: 10px">
+        <tr>
+            <td>
+                <a href="{% url 'studentregister' %}"><button type="button" class="btn btn-primary">Register</button></a>
+            </td>
+             <td>
+                <a href=""><button type="button" class="btn btn-primary">Login</button></a>
+            </td>
+             <td>
+                <a href=""><button type="button" class="btn btn-primary">Search</button></a>
+            </td>
+             <td>
+                <a href=""><button type="button" class="btn btn-primary">Contact Us</button></a>
+            </td>
+        </tr>
+    </table>
+    <div align="center" style="padding-top: 20px">
+        <table align="center" width="700">
+            <tr>
+                <td>
+                    <img src="{% static 'images/student_png.png' %}" width="250" height="250">
+                </td>
+                <td colspan="6">
+                    <table align="center" width="400" border="2" cellpadding="2" style="border-color: coral;border-style: dotted">
+                    <tr>
+                            <th colspan="6"style="font-family: 'Agency FB';color: blue;font-size: 25px;text-align:center">
+                                Available Courses
+                            </th>
+                    </tr>
+                    <tr>
+                        <th>Course</th>
+                        <th>Faculty</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Fee</th>
+                        <th>Duration</th>
+                    </tr>
+                        {% for x in data %}
+                            <tr>
+                        <th>
+                            {{ x.course }}
+                        </th>
+                            <th>
+                              {{ x.faculty }}
+                            </th>
+                            <th>
+                              {{ x.date }}
+                            </th>
+                            <th>
+                              {{ x.time }}
+                            </th>
+                            <th>
+                              {{ x.fee }}
+                            </th>
+                            <th>
+                              {{ x.duration }}
+                            </th>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    </body>
+
+{% endblock %}
