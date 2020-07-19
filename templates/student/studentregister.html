@@ -8,7 +8,7 @@
                 <a href="{% url 'studentregister' %}"><button type="button" class="btn btn-primary">Register</button></a>
             </td>
              <td>
-                <a href=""><button type="button" class="btn btn-primary">Login</button></a>
+                <a href="{% url 'studentlogin' %}"><button type="button" class="btn btn-primary">Login</button></a>
             </td>
              <td>
                 <a href=""><button type="button" class="btn btn-primary">Search</button></a>
@@ -35,8 +35,7 @@
                      <th>Name</th>
                      <th>{{ reg.name }}</th>
                      {% if reg.errors %}
-                         <th>{{ reg.errors }}
-                         </th>
+                         <th>{{ reg.errors }}</th>
                      {% endif %}
                  </tr>
                  <tr>

@@ -1,0 +1,30 @@
+{% extends "student/studentcommon.html" %}
+{% block student %}
+<body>
+
+<div align="center" style="text-align: center;padding-top: 25px">
+ <h1 style="font-family: 'Agency FB';color: blue;text-align: center">Available Courses</h1>
+    <table align="center" width="600" cellpadding="2" border="2" style="padding-top: 20px;border-style: dot-dot-dash;border-color: blue">
+        <tr style="padding: 10px;color: white;background-color: coral;font-size: 20px;font-family: 'Segoe UI'">
+            <th>Course</th>
+            <th>Faculty</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Fee</th>
+            <th>Duration</th>
+            <th>Enroll</th>
+        </tr>
+        {% for x in data %}
+            <tr>
+                <th>{{ x.course }}</th>
+                <th>{{ x.faculty }}</th>
+                <th>{{ x.date }}</th>
+                <th>{{ x.time }}</th>
+                <th>{{ x.fee }}</th>
+                <th>{{ x.duration }}</th>
+                <th><a href="{% url 'registercourse' %}?na={{ usr }}?cn={{ contact }}?cr={{ x.course }}"><button type="submit" class="btn btn-primary">Enroll</button></a></th>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
